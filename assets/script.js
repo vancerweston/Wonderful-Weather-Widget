@@ -40,8 +40,8 @@ function loadComplete(evt) {
         }
         console.log(days);
 
-        // days now equals 5 'days' of weather info. I now need to use a for loop or another
-        //      way to push that info where it needs to go in the HTML.
+        // variable days now equals 5 'days' of weather info. I now need to use a for loop
+        //     or another way to push that info where it needs to go in the HTML.
 
     }
 
