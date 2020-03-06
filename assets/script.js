@@ -1,3 +1,5 @@
+// Functions to pull OpenWeatherMap data
+
 var weatherData;
 var request = new XMLHttpRequest();
 var date = new Date();
