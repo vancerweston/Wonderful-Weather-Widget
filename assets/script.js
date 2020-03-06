@@ -7,7 +7,7 @@ var date = new Date();
 loadData();
 
 function loadData() {
-    let url = 'http://api.openweathermap.org/data/2.5/forecast?q=Layton,us&units=imperial&appid=59d980accd13058abc9c877e35b141c1';
+    let url = 'https://api.openweathermap.org/data/2.5/forecast?q=Layton,us&units=imperial&appid=59d980accd13058abc9c877e35b141c1';
     request.open('GET', url, true);
     request.onload = loadComplete;
     request.send();
