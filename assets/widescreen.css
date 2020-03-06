@@ -9,6 +9,7 @@ html {
     height: 100%;
     width: 100%;
     margin: auto;
+    background-color: black;
 }
 
 body{
@@ -23,7 +24,7 @@ body{
     height: auto;
     width: 400px;
     border-radius: 10px;
-}
+    box-shadow: 0px 0px 40px 0px #B7D8D6;}
 
 
 
@@ -54,19 +55,21 @@ body{
 }
 
 [id^='place']{
-    grid-column-start: 4;
+    grid-column-start: 3;
     grid-column-end: 6;
     text-align: center;
-    margin: 15px auto auto auto;
+    width: auto;
+    margin: 15px 25px auto auto;
     font-size: 150%;
-    font-weight: 700;
-    color: rgb(179, 68, 62);
+    font-weight: 1000;
+    color: rgb(182, 73, 31);
 }
 
 [id^='date']{
     grid-column-start: 4;
     grid-column-end: 6;
     text-align: center;
+    margin: auto 10px auto 50px;
     font-size: 80%;
     margin-top: 5px;
     color: #4D6466;

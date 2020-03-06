@@ -79,17 +79,22 @@ function loadComplete(evt) {
             document.getElementById(`conditionsDesc${i}`).innerHTML = data[3];
 
 
-        
             document.getElementById(`week1${i}`).innerHTML = data[8];
             document.getElementById(`weekConditions1${i}`).innerHTML = `<img src='http://openweathermap.org/img/w/${img}.png'/>`;
             document.getElementById(`weekTemp1${i}`).innerHTML = Math.round(data[4])+' °';
 
         }
 
+
     }
 
     updatingData();
+    changeCurrData();
 
+}
+
+function changeCurrData(){
+    document.getElementById('week10').innerHTML = 'Today';
 }
 
 // Functions to navigate the week forecast
