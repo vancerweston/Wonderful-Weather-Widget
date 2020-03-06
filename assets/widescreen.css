@@ -131,6 +131,11 @@ body{
     margin-top: 10px;
 }
 
+.forecastImg {
+    height: 50px;
+    width: 50px;
+}
+
 [id^='conditions']{
     grid-column-start: 4;
     grid-column-end: 6;
@@ -181,7 +186,7 @@ body{
 [id^='forecast']{
     text-align: center;
     width:20%;
-    background-color: rgb(240, 233, 223);
+    background-color: rgb(224, 208, 185);
     height: 105px;
     margin: auto;
     padding-top: 10px;

@@ -75,12 +75,12 @@ function loadComplete(evt) {
             document.getElementById(`windSpeed${i}`).innerHTML = `<img class='img' src='/assets/img/wind-speed.png'/>` + ' ' + Math.round(data[5])+' mph';
             document.getElementById(`pressure${i}`).innerHTML = `<img class='img' src='/assets/img/pressure.png'/>` + ' ' + data[6]+' hpa';
             document.getElementById(`humidity${i}`).innerHTML = `<img class='img' src='/assets/img/humidity.png'/>` + ' ' + data[7]+' %';
-            document.getElementById(`conditions${i}`).innerHTML = `<img id='weatherIcon' src='http://openweathermap.org/img/w/${img}.png'/>`;
-            document.getElementById(`conditionsDesc${i}`).innerHTML = data[3];
+            document.getElementById(`conditions${i}`).innerHTML = `<img id='weatherIcon' src='http://openweathermap.org/img/wn/${img}@2x.png'/>`;
+            document.getElementById(`conditionsDesc${i}`).innerHTML = data[3]; //http://openweathermap.org/img/wn/10d@2x.png
 
 
             document.getElementById(`week1${i}`).innerHTML = data[8];
-            document.getElementById(`weekConditions1${i}`).innerHTML = `<img src='http://openweathermap.org/img/w/${img}.png'/>`;
+            document.getElementById(`weekConditions1${i}`).innerHTML = `<img class='forecastImg' src='http://openweathermap.org/img/wn/${img}@2x.png'/>`;
             document.getElementById(`weekTemp1${i}`).innerHTML = Math.round(data[4])+' °';
 
         }
