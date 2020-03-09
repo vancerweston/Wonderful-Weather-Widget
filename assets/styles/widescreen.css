@@ -117,6 +117,7 @@ body{
     grid-row-end: 6;
     text-align: center;
     margin: auto;
+    width: 90px;
     font-size: 65%;
     color: #d6d5d5;
     font-weight: 600;
@@ -129,6 +130,7 @@ body{
     grid-row-end: 6;
     text-align: center;
     margin: auto;
+    width: 90px;
     font-size: 65%;
     color: #d6d5d5;
     font-weight: 600;
@@ -141,6 +143,7 @@ body{
     grid-row-end: 6;
     text-align: center;
     margin: auto;
+    width: 90px;
     font-size: 65%;
     color: #d6d5d5;
     font-weight: 600;
