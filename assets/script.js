@@ -1,3 +1,13 @@
+document.body.addEventListener( 'keydown', function (e) {
+    if ( e.keyCode == 13 ) {
+      // Simulate clicking on the submit button.
+      e.preventDefault();
+      loadData();
+      loadComplete();
+      return false;
+    }
+  });
+
 // Functions to pull OpenWeatherMap data
 
 var weatherData;
@@ -7,7 +17,11 @@ var date = new Date();
 loadData();
 
 function loadData() {
-    let url = 'https://api.openweathermap.org/data/2.5/forecast?q=Layton,us&units=imperial&appid=59d980accd13058abc9c877e35b141c1';
+    let location;
+    location = document.getElementById('location').value;
+    console.log(location);
+
+    let url = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=imperial&appid=59d980accd13058abc9c877e35b141c1`;
     request.open('GET', url, true);
     request.onload = loadComplete;
     request.send();
@@ -16,13 +30,18 @@ function loadData() {
 
 function loadComplete(evt) {
     weatherData = JSON.parse(request.responseText);
+    
+    if(weatherData.message == 'city not found'){
+        alert('We were not able to find your city. Please check that you entered a valid city. If that doesn\'t work, then we sadly don\'t have the weather information for your city. We are sorry.');
+    }
+
+    console.log(weatherData.message);
     console.log(weatherData);
     let currentWeather = weatherData.list[0];
-    let newList = weatherData.list.filter(item => item.dt_txt.includes('12:00:00'));
+    let newList = weatherData.list.filter(item => item.dt_txt.includes('15:00:00'));
     console.log(newList);
     newList.unshift(currentWeather);
     console.log(newList);
-
 
     
     function updatingData() {
@@ -107,12 +126,12 @@ function navigationOne() {
     document.getElementById('dayFive').style.display = 'none';
     document.getElementById('daySix').style.display = 'none';
 
-    document.getElementById('forecastOne').style.borderTop = 'solid 5px #4D6466';
-    document.getElementById('forecastTwo').style.borderTop = 'solid 1px #789E9E';
-    document.getElementById('forecastThree').style.borderTop = 'solid 1px #789E9E';
-    document.getElementById('forecastFour').style.borderTop = 'solid 1px #789E9E';
-    document.getElementById('forecastFive').style.borderTop = 'solid 1px #789E9E';
-    document.getElementById('forecastSix').style.borderTop = 'solid 1px #789E9E';
+    document.getElementById('forecastOne').style.borderTop = 'solid 5px #8ea2bdce';
+    document.getElementById('forecastTwo').style.borderTop = 'solid 1px #8ea2bdce';
+    document.getElementById('forecastThree').style.borderTop = 'solid 1px #8ea2bdce';
+    document.getElementById('forecastFour').style.borderTop = 'solid 1px #8ea2bdce';
+    document.getElementById('forecastFive').style.borderTop = 'solid 1px #8ea2bdce';
+    document.getElementById('forecastSix').style.borderTop = 'solid 1px #8ea2bdce';
 
 }
 
@@ -124,12 +143,12 @@ function navigationTwo() {
     document.getElementById('dayFive').style.display = 'none';
     document.getElementById('daySix').style.display = 'none';
 
-    document.getElementById('forecastOne').style.borderTop = 'solid 1px #789E9E';
-    document.getElementById('forecastTwo').style.borderTop = 'solid 5px #4D6466';
-    document.getElementById('forecastThree').style.borderTop = 'solid 1px #789E9E';
-    document.getElementById('forecastFour').style.borderTop = 'solid 1px #789E9E';
-    document.getElementById('forecastFive').style.borderTop = 'solid 1px #789E9E';
-    document.getElementById('forecastSix').style.borderTop = 'solid 1px #789E9E';
+    document.getElementById('forecastOne').style.borderTop = 'solid 1px #8ea2bdce';
+    document.getElementById('forecastTwo').style.borderTop = 'solid 5px #8ea2bdce';
+    document.getElementById('forecastThree').style.borderTop = 'solid 1px #8ea2bdce';
+    document.getElementById('forecastFour').style.borderTop = 'solid 1px #8ea2bdce';
+    document.getElementById('forecastFive').style.borderTop = 'solid 1px #8ea2bdce';
+    document.getElementById('forecastSix').style.borderTop = 'solid 1px #8ea2bdce';
 }
 
 function navigationThree() {
@@ -140,12 +159,12 @@ function navigationThree() {
     document.getElementById('dayFive').style.display = 'none';
     document.getElementById('daySix').style.display = 'none';
 
-    document.getElementById('forecastOne').style.borderTop = 'solid 1px #789E9E';
-    document.getElementById('forecastTwo').style.borderTop = 'solid 1px #789E9E';
-    document.getElementById('forecastThree').style.borderTop = 'solid 5px #4D6466';
-    document.getElementById('forecastFour').style.borderTop = 'solid 1px #789E9E';
-    document.getElementById('forecastFive').style.borderTop = 'solid 1px #789E9E';
-    document.getElementById('forecastSix').style.borderTop = 'solid 1px #789E9E';
+    document.getElementById('forecastOne').style.borderTop = 'solid 1px #8ea2bdce';
+    document.getElementById('forecastTwo').style.borderTop = 'solid 1px #8ea2bdce';
+    document.getElementById('forecastThree').style.borderTop = 'solid 5px #8ea2bdce';
+    document.getElementById('forecastFour').style.borderTop = 'solid 1px #8ea2bdce';
+    document.getElementById('forecastFive').style.borderTop = 'solid 1px #8ea2bdce';
+    document.getElementById('forecastSix').style.borderTop = 'solid 1px #8ea2bdce';
 }
 
 function navigationFour() {
@@ -156,12 +175,12 @@ function navigationFour() {
     document.getElementById('dayFive').style.display = 'none';
     document.getElementById('daySix').style.display = 'none';
 
-    document.getElementById('forecastOne').style.borderTop = 'solid 1px #789E9E';
-    document.getElementById('forecastTwo').style.borderTop = 'solid 1px #789E9E';
-    document.getElementById('forecastThree').style.borderTop = 'solid 1px #789E9E';
-    document.getElementById('forecastFour').style.borderTop = 'solid 5px #4D6466';
-    document.getElementById('forecastFive').style.borderTop = 'solid 1px #789E9E';
-    document.getElementById('forecastSix').style.borderTop = 'solid 1px #789E9E';
+    document.getElementById('forecastOne').style.borderTop = 'solid 1px #8ea2bdce';
+    document.getElementById('forecastTwo').style.borderTop = 'solid 1px #8ea2bdce';
+    document.getElementById('forecastThree').style.borderTop = 'solid 1px #8ea2bdce';
+    document.getElementById('forecastFour').style.borderTop = 'solid 5px #8ea2bdce';
+    document.getElementById('forecastFive').style.borderTop = 'solid 1px #8ea2bdce';
+    document.getElementById('forecastSix').style.borderTop = 'solid 1px #8ea2bdce';
 }
 
 function navigationFive() {
@@ -172,12 +191,12 @@ function navigationFive() {
     document.getElementById('dayFive').style.display = 'grid';
     document.getElementById('daySix').style.display = 'none';
 
-    document.getElementById('forecastOne').style.borderTop = 'solid 1px #789E9E';
-    document.getElementById('forecastTwo').style.borderTop = 'solid 1px #789E9E';
-    document.getElementById('forecastThree').style.borderTop = 'solid 1px #789E9E';
-    document.getElementById('forecastFour').style.borderTop = 'solid 1px #789E9E';
-    document.getElementById('forecastFive').style.borderTop = 'solid 5px #4D6466';
-    document.getElementById('forecastSix').style.borderTop = 'solid 1px #789E9E';
+    document.getElementById('forecastOne').style.borderTop = 'solid 1px #8ea2bdce';
+    document.getElementById('forecastTwo').style.borderTop = 'solid 1px #8ea2bdce';
+    document.getElementById('forecastThree').style.borderTop = 'solid 1px #8ea2bdce';
+    document.getElementById('forecastFour').style.borderTop = 'solid 1px #8ea2bdce';
+    document.getElementById('forecastFive').style.borderTop = 'solid 5px #8ea2bdce';
+    document.getElementById('forecastSix').style.borderTop = 'solid 1px #8ea2bdce';
 }
 
 function navigationSix() {
@@ -188,10 +207,10 @@ function navigationSix() {
     document.getElementById('dayFive').style.display = 'none';
     document.getElementById('daySix').style.display = 'grid';
 
-    document.getElementById('forecastOne').style.borderTop = 'solid 1px #789E9E';
-    document.getElementById('forecastTwo').style.borderTop = 'solid 1px #789E9E';
-    document.getElementById('forecastThree').style.borderTop = 'solid 1px #789E9E';
-    document.getElementById('forecastFour').style.borderTop = 'solid 1px #789E9E';
-    document.getElementById('forecastFive').style.borderTop = 'solid 1px #789E9E';
-    document.getElementById('forecastSix').style.borderTop = 'solid 5px #4D6466';
+    document.getElementById('forecastOne').style.borderTop = 'solid 1px #8ea2bdce';
+    document.getElementById('forecastTwo').style.borderTop = 'solid 1px #8ea2bdce';
+    document.getElementById('forecastThree').style.borderTop = 'solid 1px #8ea2bdce';
+    document.getElementById('forecastFour').style.borderTop = 'solid 1px #8ea2bdce';
+    document.getElementById('forecastFive').style.borderTop = 'solid 1px #8ea2bdce';
+    document.getElementById('forecastSix').style.borderTop = 'solid 5px #8ea2bdce';
 }

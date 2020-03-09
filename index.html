@@ -3,12 +3,18 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=0.8, shrink-to-fit=no, user-scalable=no">
-
         <link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet">
         <link href='/assets/widescreen.css' rel='stylesheet'/> 
     </head>
     <body>
         <div id='weatherWidget'>
+            <div id='input'>
+                <form>
+                    <label for='location' id='label'>City:</label>
+                    <input type='text' id='location' value='Layton'/>
+                    <button type='button' id='button' onclick='loadData()' onclick='loadComplete()'>Submit</button>
+                </form>
+            </div>
             <div id='viewedWeather'>
                 <div id="dayOne">
                     <div id="place0"></div>
